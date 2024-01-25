@@ -2,12 +2,18 @@ import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CutomsButton extends StatelessWidget {
-  const CutomsButton({super.key, required this.backgroundColor, required this.textColor,  this.borderRadius, required this.text, required this.onPressed});
-final Color backgroundColor;
-final Color textColor;
-final BorderRadius? borderRadius;
-final String text;
-final VoidCallback onPressed;
+  const CutomsButton(
+      {super.key,
+      required this.backgroundColor,
+      required this.textColor,
+      this.borderRadius,
+      required this.text,
+      required this.onPressed});
+  final Color backgroundColor;
+  final Color textColor;
+  final BorderRadius? borderRadius;
+  final String text;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return TextButton(

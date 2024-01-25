@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_button.dart';
@@ -8,7 +7,7 @@ class BooksAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       children: [
         Expanded(
           child: CutomsButton(
@@ -19,9 +18,10 @@ class BooksAction extends StatelessWidget {
               bottomLeft: Radius.circular(20),
             ),
             text: '19.99 €',
-            onPressed: (){},
+            onPressed: () {},
           ),
-        ),Expanded(
+        ),
+        Expanded(
           child: CutomsButton(
             textColor: Colors.white,
             backgroundColor: const Color(0xffEF8262),
@@ -30,9 +30,8 @@ class BooksAction extends StatelessWidget {
               bottomRight: Radius.circular(20),
             ),
             text: 'Free Preview',
-            onPressed: (){},
+            onPressed: () {},
           ),
-          
         ),
       ],
     );
