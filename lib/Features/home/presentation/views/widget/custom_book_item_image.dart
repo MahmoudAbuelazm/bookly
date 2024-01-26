@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../../../core/utils/assets.dart';
+import '../../../../../core/utils/assets.dart';
 
 class CustomBookItemImage extends StatelessWidget {
   const CustomBookItemImage({super.key});

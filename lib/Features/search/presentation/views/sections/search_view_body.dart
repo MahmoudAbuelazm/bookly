@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/styles.dart';
+import '../../../../../core/utils/styles.dart';
 import '../widgets/custom_search_text_field.dart';
 import '../widgets/search_result_list_view.dart';
 

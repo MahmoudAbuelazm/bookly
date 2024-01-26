@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../sections/search_view_body.dart';
+import 'sections/search_view_body.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
