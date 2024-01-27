@@ -1,9 +1,13 @@
+import 'package:bookly/Features/home/data/model/book/book.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/functions/launch_url.dart';
 import '../../../../../core/widgets/custom_button.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
+  const BooksAction({super.key, required this.book});
+
+  final Book book;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,7 @@ class BooksAction extends StatelessWidget {
               topLeft: Radius.circular(20),
               bottomLeft: Radius.circular(20),
             ),
-            text: '19.99 €',
+            text: 'Free',
             onPressed: () {},
           ),
         ),
@@ -29,11 +33,21 @@ class BooksAction extends StatelessWidget {
               topRight: Radius.circular(20),
               bottomRight: Radius.circular(20),
             ),
-            text: 'Free Preview',
-            onPressed: () {},
+            text: getText(book),
+            onPressed: () async {
+              launchCustomUrl(context, book.volumeInfo.previewLink);
+            },
           ),
         ),
       ],
     );
+  }
+
+  String getText(Book book) {
+    if (book.volumeInfo.previewLink == null) {
+      return 'Not Available';
+    } else {
+      return 'Preview';
+    }
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../home/presentation/views/section/best_seller_list_view_item.dart';
 
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({super.key});
@@ -11,7 +10,7 @@ class SearchResultListView extends StatelessWidget {
       shrinkWrap: true,
       itemCount: 10,
       itemBuilder: (context, index) {
-        return const BookListViewItem();
+        return Text('data');
       },
       separatorBuilder: (context, index) {
         return const SizedBox(
