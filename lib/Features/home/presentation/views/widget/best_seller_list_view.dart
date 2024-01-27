@@ -16,16 +16,16 @@ class BestSellerListView extends StatelessWidget {
       if (state is NewestBooksSuccess) {
         return ListView.separated(
           shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           itemCount: state.books.length,
           itemBuilder: (context, index) {
-            return  BookListViewItem(
+            return BookListViewItem(
               book: state.books[index],
             );
           },
           separatorBuilder: (context, index) {
             return const SizedBox(
-              height: 10,
+              height: 20,
             );
           },
         );

@@ -24,10 +24,10 @@ class BookListViewItem extends StatelessWidget {
         child: Row(
           children: [
             CustomBookItemImage(
-              imageUrl: book.volumeInfo.imageLinks.thumbnail,
+              imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
             ),
             const SizedBox(
-              width: 30,
+              width: 10,
             ),
             Expanded(
               child: Column(
@@ -36,33 +36,40 @@ class BookListViewItem extends StatelessWidget {
                     width: width * 0.5,
                     child: Text(
                       book.volumeInfo.title!,
-                      style: Styles.textStyle20,
+                      style: Styles.textStyle16.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
                   Text(
                     book.volumeInfo.authors![0],
-                    style: Styles.textStyle14,
+                    style: Styles.textStyle14.copyWith(color: Colors.grey[600]),
+                    textAlign: TextAlign.center,
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 5,
                   ),
-                  Row(
-                    children: [
-                      const Text(
-                        'Free',
-                        style: Styles.textStyle20,
-                      ),
-                      const Spacer(),
-                      BookRating(
-                        rating: book.volumeInfo.averageRating ?? 0,
-                        count: book.volumeInfo.ratingsCount ?? 0,
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Free',
+                          style: Styles.textStyle20,
+                        ),
+                        const Spacer(),
+                        BookRating(
+                          rating: book.volumeInfo.averageRating?.round() ?? 0,
+                          count: book.volumeInfo.ratingsCount ?? 0,
+                        ),
+                      ],
+                    ),
                   )
                 ],
               ),

@@ -10,7 +10,6 @@ class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.book});
 
   final Book book;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -22,17 +21,16 @@ class BookDetailsSection extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.17),
-          child:  CustomBookItemImage(
-            imageUrl:
-                book.volumeInfo.imageLinks.thumbnail,
+          child: CustomBookItemImage(
+            imageUrl: book.volumeInfo.imageLinks?.thumbnail ?? '',
           ),
         ),
         const SizedBox(
           height: 6,
         ),
-         Text(
+        Text(
           book.volumeInfo.title!,
-          style: Styles.textStyle30,
+          style: Styles.textStyle26,
           textAlign: TextAlign.center,
         ),
         const SizedBox(
@@ -40,20 +38,20 @@ class BookDetailsSection extends StatelessWidget {
         ),
         Text(
           book.volumeInfo.authors?[0] ?? '',
-          style: Styles.textStyle18.copyWith(fontStyle: FontStyle.italic),
+          style: Styles.textStyle18.copyWith(color: Colors.grey[600]),
         ),
         const SizedBox(
           height: 10,
         ),
-         BookRating(
+        BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
-          rating: book.volumeInfo.averageRating?? 0,
+          rating: book.volumeInfo.averageRating?.round() ?? 0,
           count: book.volumeInfo.ratingsCount ?? 0,
         ),
         const SizedBox(
           height: 20,
         ),
-         BooksAction(
+        BooksAction(
           book: book,
         ),
       ],

@@ -3,7 +3,9 @@ import 'package:bookly/core/widgets/custom_error_widget.dart';
 import 'package:bookly/core/widgets/custom_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../core/utils/app_router.dart';
 import 'custom_book_item_image.dart';
 
 class SimilarBookListView extends StatelessWidget {
@@ -26,9 +28,16 @@ class SimilarBookListView extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,
                     ),
-                    child: CustomBookItemImage(
-                      imageUrl:
-                          state.books[index].volumeInfo.imageLinks.thumbnail,
+                    child: GestureDetector(
+                      onTap: () {
+                        GoRouter.of(context).push(AppRouter.kBookDetailsView,
+                            extra: state.books[index]);
+                      },
+                      child: CustomBookItemImage(
+                        imageUrl: state.books[index].volumeInfo.imageLinks
+                                ?.thumbnail ??
+                            '',
+                      ),
                     ),
                   );
                 }),

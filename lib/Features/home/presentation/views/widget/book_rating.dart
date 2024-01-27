@@ -21,7 +21,7 @@ class BookRating extends StatelessWidget {
       children: [
         const Icon(
           FontAwesomeIcons.solidStar,
-          size: 14,
+          size: 18,
           color: Color(0xffFFDD4f),
         ),
         const SizedBox(
@@ -37,7 +37,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text(
-            '( $count)',
+            '($count)',
             style: Styles.textStyle16.copyWith(
               fontWeight: FontWeight.w600,
             ),
